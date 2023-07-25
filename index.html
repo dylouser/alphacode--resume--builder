@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <h2>Personal Information</h2>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" placeholder="Your Full Name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="you@example.com">
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" placeholder="Your Phone Number">
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <label for="education">Education:</label>
+      <textarea id="education" rows="4" placeholder="Your Education"></textarea>
+    </div>
+
+    <div class="section">
+      <h2>Work Experience</h2>
+      <label for="workExperience">Work Experience:</label>
+      <textarea id="workExperience" rows="4" placeholder="Your Work Experience"></textarea>
+    </div>
+
+    <button onclick="generateResume()">Generate Resume</button>
+
+    <div id="resumeOutput" class="section" style="display: none;">
+      <h2>Resume Output</h2>
+      <div id="outputFullName"></div>
+      <div id="outputEmail"></div>
+      <div id="outputPhone"></div>
+      <div id="outputEducation"></div>
+      <div id="outputWorkExperience"></div>
+    </div>
+  </div>
+
+  <script>
+    function generateResume() {
+      const fullName = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const education = document.getElementById("education").value;
+      const workExperience = document.getElementById("workExperience").value;
+
+      document.getElementById("outputFullName").innerText = "Full Name: " + fullName;
+      document.getElementById("outputEmail").innerText = "Email: " + email;
+      document.getElementById("outputPhone").innerText = "Phone: " + phone;
+      document.getElementById("outputEducation").innerText = "Education:\n" + education;
+      document.getElementById("outputWorkExperience").innerText = "Work Experience:\n" + workExperience;
+
+      document.getElementById("resumeOutput").style.display = "block";
+    }
+  </script>
+</body>
+</html>
